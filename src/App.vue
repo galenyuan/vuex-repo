@@ -6,15 +6,18 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
 
 export default {
   name: 'app',
 
-  computed: {
-    ...mapState({
-      name: state => state.name
-    })
+  mounted () {
+    this.sum(1, 2, 3, '4', 5, null)
+  },
+
+  methods: {
+    sum (...numbers: number[]): number {
+      return numbers.reduce((r, c) => r + c, 0)
+    }
   }
 }
 </script>
